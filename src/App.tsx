@@ -7,7 +7,7 @@ import MinistryDetails from "./components/pages/MinistryDetails";
 import History from "./components/pages/about/History";
 import Vision from "./components/pages/about/Vision";
 import PastoralTeam from "./components/pages/about/PastoralTeam";
-
+import Events from "./components/pages/events/Events";
 function App() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
@@ -19,6 +19,7 @@ function App() {
           <Route path="/historia" element={<History />} />
           <Route path="/visao" element={<Vision />} />
           <Route path="/equipe" element={<PastoralTeam />} />
+          <Route path="/eventos" element={<Events />} />
           <Route path="/*" element={<Home />} />
         </Route>
       </Routes>

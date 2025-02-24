@@ -16,49 +16,49 @@ const MinistryGrid = ({
   ministries = [
     {
       id: "1",
-      title: "Youth Ministry",
+      title: "Ministério de Jovens",
       description:
-        "A vibrant community for young people to grow in faith and fellowship together.",
+        "Uma comunidade vibrante para jovens crescerem na fé e comunhão juntos.",
       imageUrl:
         "https://images.unsplash.com/photo-1523803326055-9729b9e02e5a?auto=format&fit=crop&q=80",
     },
     {
       id: "2",
-      title: "Children's Ministry",
+      title: "Ministério Infantil",
       description:
-        "Nurturing young hearts and minds in the love of Christ through fun and engaging activities.",
+        "Nutrindo corações e mentes jovens no amor de Cristo através de atividades divertidas e envolventes.",
       imageUrl:
         "https://images.unsplash.com/photo-1602008672365-1e4f1e12c3a6?auto=format&fit=crop&q=80",
     },
     {
       id: "3",
-      title: "Couples Ministry",
+      title: "Ministério de Casais",
       description:
-        "Supporting and strengthening marriages through fellowship and Biblical teaching.",
+        "Apoiando e fortalecendo casamentos através de comunhão e ensino bíblico.",
       imageUrl:
         "https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&q=80",
     },
     {
       id: "4",
-      title: "Women's Ministry",
+      title: "Ministério de Mulheres",
       description:
-        "Empowering women through prayer, study, and community support.",
+        "Capacitando mulheres através de oração, estudo e apoio comunitário.",
       imageUrl:
         "https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&q=80",
     },
     {
       id: "5",
-      title: "Men's Ministry",
+      title: "Ministério de Homens",
       description:
-        "Building strong Christian men through fellowship and discipleship.",
+        "Construindo homens cristãos fortes através de comunhão e discipulado.",
       imageUrl:
         "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80",
     },
     {
       id: "6",
-      title: "Music Ministry",
+      title: "Ministério de Música",
       description:
-        "Praising God through music and leading the congregation in worship.",
+        "Louvando a Deus através da música e conduzindo a congregação em adoração.",
       imageUrl:
         "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80",
     },
@@ -68,11 +68,11 @@ const MinistryGrid = ({
     <section className="w-full max-w-[1200px] mx-auto py-16 px-4 bg-gray-50">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Our Ministries
+          Nossos Ministérios
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Discover the various ways you can get involved and grow in your faith
-          journey through our diverse ministry programs.
+          Descubra as várias maneiras de se envolver e crescer em sua jornada de fé
+          através de nossos diversos programas ministeriais.
         </p>
       </div>
 
@@ -86,7 +86,8 @@ const MinistryGrid = ({
             onClick={() => {
               const slug = ministry.title
                 .toLowerCase()
-                .replace(/'s/g, "")
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
                 .replace(/\s+/g, "-");
               window.location.href = `/ministerios/${ministry.id}`;
             }}

@@ -9,6 +9,7 @@ import {
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
 import { Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   logo?: string;

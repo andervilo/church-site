@@ -14,6 +14,7 @@ interface MinistryCardProps {
   description?: string;
   imageUrl?: string;
   onClick?: () => void;
+  className?: string;
 }
 
 const MinistryCard = ({
@@ -21,9 +22,10 @@ const MinistryCard = ({
   description = "A vibrant community for young people to grow in faith and fellowship together.",
   imageUrl = "https://images.unsplash.com/photo-1523803326055-9729b9e02e5a?auto=format&fit=crop&q=80",
   onClick = () => console.log("Ministry card clicked"),
+  className,
 }: MinistryCardProps) => {
   return (
-    <Card className="w-[380px] h-[220px] overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
+    <Card className={`w-[380px] h-[220px] overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300 cursor-pointer group ${className || ''}`}>
       <div className="relative h-full">
         <div
           className="absolute inset-0 bg-cover bg-center z-0"

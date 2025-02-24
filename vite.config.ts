@@ -31,5 +31,11 @@ export default defineConfig({
   server: {
     // @ts-ignore
     allowedHosts: true,
+    watch: {
+      usePolling: true,
+    },
+    hmr: {
+      overlay: true,
+    },
   }
 });
