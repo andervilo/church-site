@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    show-sql: false
+
+app:
+  storage:
+    type: s3
+    endpoint: ""
+
+logging:
+  level:
+    com.church: INFO
