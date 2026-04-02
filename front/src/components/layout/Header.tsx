@@ -9,25 +9,24 @@ import {
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
 import { Phone } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useSiteSettings } from "../../hooks/useSiteSettings";
 
-interface HeaderProps {
-  logo?: string;
-  onContactClick?: () => void;
-}
+const Header = () => {
+  const { settings } = useSiteSettings();
+  const churchName = settings.church_name || "Igreja Evangélica";
 
-const Header = ({
-  logo = "https://api.dicebear.com/7.x/initials/svg?seed=CP",
-  onContactClick = () => console.log("Contact button clicked"),
-}: HeaderProps) => {
   return (
     <header className="w-full h-20 bg-white/95 backdrop-blur-sm border-b border-gray-200 fixed top-0 left-0 z-50 shadow-sm">
       <div className="container mx-auto h-full px-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <img src={logo} alt="Church Logo" className="h-12 w-12" />
+          <img
+            src={`https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(churchName)}`}
+            alt="Logo"
+            className="h-12 w-12"
+          />
           <span className="ml-2 text-xl font-bold text-gray-900">
-            Church Name
+            {churchName}
           </span>
         </div>
 
@@ -92,12 +91,9 @@ const Header = ({
         </NavigationMenu>
 
         {/* Contact Button */}
-        <Button
-          onClick={onContactClick}
-          className="bg-blue-600 hover:bg-blue-700 text-white"
-        >
+        <Button className="bg-blue-600 hover:bg-blue-700 text-white">
           <Phone className="mr-2 h-4 w-4" />
-          Contact Us
+          Fale Conosco
         </Button>
       </div>
     </header>
